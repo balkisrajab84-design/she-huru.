@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="She Huru Initiative Governance and Accountability — board, policies, and financial stewardship." />
+  <title>Governance & Accountability — She Huru Initiative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--purple:#6D28D9;--teal:#14B8A6;--coral:#F97316;--offwhite:#FAFAFA;--charcoal:#222222;--muted:#5b5b5b;--radius:18px;--max:1180px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--offwhite);color:var(--charcoal);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.15;letter-spacing:-0.02em;}
+    a{color:inherit;text-decoration:none;}
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px;}
+    .skip{position:absolute;left:-9999px;top:0;background:var(--charcoal);color:#fff;padding:12px 20px;z-index:9999;}
+    .skip:focus{left:0;}
+
+    /* NAV */
+    header.nav-wrap{position:sticky;top:0;z-index:1000;background:rgba(250,250,250,0.96);backdrop-filter:blur(10px);border-bottom:1px solid #eee;}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+    .brand{font-family:'Poppins';font-weight:800;font-size:1.15rem;}
+    .brand span{color:var(--purple);}
+    .nav-links{display:flex;align-items:center;gap:26px;}
+    .nav-links a{font-size:.94rem;font-weight:500;color:#333;}
+    .nav-links a:hover{color:var(--purple);}
+    .btn{display:inline-block;font-weight:600;font-size:.95rem;padding:13px 26px;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;border:2px solid transparent;}
+    .btn:hover{transform:translateY(-2px);}
+    .btn-coral{background:var(--coral);color:#fff;box-shadow:0 8px 20px rgba(249,115,22,.28);}
+    .btn-coral:hover{background:#ea6a0c;}
+    .btn-teal{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(20,184,166,.28);}
+    .btn-teal:hover{background:#0f9c8d;}
+    .nav .btn-coral{padding:11px 22px;}
+    .menu-toggle{display:none;}
+
+    /* PAGE HERO */
+    .page-hero{background:radial-gradient(circle at 15% 20%, #7c3aed 0%, #6D28D9 50%, #4c1d95 100%);color:#fff;padding:90px 0 100px;position:relative;overflow:hidden;}
+    .page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 80%, rgba(20,184,166,.25), transparent 45%);pointer-events:none;}
+    .page-hero .container{position:relative;z-index:2;}
+    .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#e9d5ff;background:rgba(255,255,255,.10);padding:8px 16px;border-radius:999px;margin-bottom:22px;}
+    .page-hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;max-width:20ch;margin-bottom:20px;}
+    .page-hero p{font-size:clamp(1rem,1.5vw,1.15rem);max-width:60ch;color:#f3e8ff;}
+
+    section{padding:80px 0;}
+    .section-label{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:12px;display:block;}
+    .section-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px;}
+    .section-sub{max-width:62ch;color:var(--muted);margin-bottom:48px;}
+    .center{text-align:center;}
+    .center .section-sub{margin-left:auto;margin-right:auto;}
+
+    /* CONTENT GRID */
+    .gov-section{background:#fff;}
+    .gov-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+    .gov-block h3{font-size:1.3rem;margin-bottom:16px;color:var(--purple);}
+    .gov-block p{color:#444;margin-bottom:16px;font-size:.95rem;}
+    .gov-block ul{list-style:none;padding:0;}
+    .gov-block li{position:relative;padding-left:28px;margin-bottom:12px;font-size:.95rem;color:#444;}
+    .gov-block li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:bold;}
+
+    /* POLICIES */
+    .policies{background:var(--offwhite);}
+    .policy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+    .policy-card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:0 8px 24px rgba(34,34,34,.05);border-left:4px solid var(--purple);}
+    .policy-card h3{font-size:1.1rem;margin-bottom:10px;}
+    .policy-card p{font-size:.9rem;color:var(--muted);margin-bottom:20px;}
+    .download-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--purple);font-size:.9rem;}
+    .download-btn:hover{text-decoration:underline;}
+
+    .cta-strip{background:var(--charcoal);color:#fff;text-align:center;padding:70px 0;}
+    .cta-strip h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:14px;}
+    .cta-strip p{color:#cfcfcf;max-width:60ch;margin:0 auto 30px;}
+
+    /* FOOTER */
+    footer{background:var(--charcoal);color:#cfcfcf;padding:70px 0 28px;border-top:1px solid #333;}
+    .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr 1fr;gap:40px;margin-bottom:50px;}
+    .foot-grid h4{color:#fff;font-size:.95rem;margin-bottom:18px;}
+    .foot-grid p,.foot-grid a{font-size:.9rem;color:#b8b8b8;line-height:1.9;}
+    .foot-grid a:hover{color:var(--teal);}
+    .foot-brand{font-family:'Poppins';font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:14px;}
+    .foot-bottom{border-top:1px solid #383838;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:#8f8f8f;}
+    .foot-bottom a:hover{color:var(--teal);}
+
+    @media(max-width:960px){
+      .gov-grid{grid-template-columns:1fr;gap:32px;}
+      .policy-grid{grid-template-columns:1fr;}
+      .foot-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:720px){
+      .nav-links{display:none;}
+      .nav .btn-coral{display:none;}
+      .menu-toggle{display:block;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--charcoal);}
+      .mobile-nav{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;border-bottom:1px solid #eee;padding:18px 22px;flex-direction:column;gap:14px;}
+      .mobile-nav.open{display:flex;}
+      section{padding:60px 0;}
+      .page-hero{padding:70px 0 80px;}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+
+<header class="nav-wrap">
+  <div class="container nav">
+    <a href="index.html" class="brand">She Huru <span>Initiative</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programmes</a>
+      <a href="impact.html">Impact</a>
+      <a href="governance.html" style="color:var(--purple);font-weight:700;">Governance</a>
+      <a href="donate.html" class="btn btn-coral">Donate</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" onclick="var m=document.getElementById('mnav');m.classList.toggle('open');">☰</button>
+  </div>
+  <nav id="mnav" class="mobile-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programmes</a>
+    <a href="impact.html">Impact</a>
+    <a href="governance.html">Governance</a>
+    <a href="donate.html" style="color:var(--coral);font-weight:700;">Donate</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Governance &amp; Accountability</span>
+      <h1>Built on Trust, Transparency and Integrity</h1>
+      <p>Strong governance is the foundation of lasting impact. Learn about our leadership structure, accountability mechanisms, and the policies that guide our work.</p>
+    </div>
+  </section>
+
+  <section class="gov-section">
+    <div class="container">
+      <div class="gov-grid">
+        <div class="gov-block">
+          <h3>Our Governance Structure</h3>
+          <p>She Huru Initiative operates under a dual-leadership model that separates strategic oversight from day-to-day management. This ensures checks and balances while allowing our team to remain agile and responsive to community needs.</p>
+          <ul>
+            <li><strong>Board of Management:</strong> Provides strategic guidance, fiduciary oversight, and policy approval. Meets quarterly.</li>
+            <li><strong>Executive Leadership:</strong> Manages daily operations, programme implementation, and staff well-being.</li>
+            <li><strong>Community Advisory Council:</strong> Ensures that our work remains grounded in the lived realities and priorities of the LBQ and GNC community.</li>
+          </ul>
+        </div>
+        <div class="gov-block">
+          <h3>Financial Stewardship</h3>
+          <p>We are deeply committed to responsible financial management. Every shilling entrusted to us is treated as a resource for the community.</p>
+          <ul>
+            <li>Annual external audits by independent accounting firms.</li>
+            <li>Clear financial policies, procurement guidelines, and internal controls.</li>
+            <li>Regular financial reporting to donors and partners.</li>
+            <li>Transparent budgeting processes overseen by the Board.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="policies">
+    <div class="container">
+      <div class="center">
+        <span class="section-label">Accountability</span>
+        <h2 class="section-title">Policies &amp; Safeguarding</h2>
+        <p class="section-sub">We hold ourselves to the highest standards of safety and ethical conduct. Download our key institutional policies below.</p>
+      </div>
+      <div class="policy-grid">
+        <!-- UPDATE: Link these to actual PDF files once you have them -->
+        <div class="policy-card">
+          <h3>Safeguarding Policy</h3>
+          <p>Our zero-tolerance commitment to protecting community members, staff, and volunteers from harm, abuse, and exploitation.</p>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+        <div class="policy-card">
+          <h3>Finance &amp; Procurement Policy</h3>
+          <p>Guidelines ensuring transparent, ethical, and efficient use of organizational resources.</p>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+        <div class="policy-card">
+          <h3>Conflict of Interest Policy</h3>
+          <p>Procedures to identify, disclose, and manage actual or potential conflicts of interest among leadership.</p>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+        <div class="policy-card">
+          <h3>Risk Management Framework</h3>
+          <p>Our approach to identifying, mitigating, and monitoring operational and programmatic risks.</p>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Questions About Our Governance?</h2>
+      <p>We believe in open communication. If you are a donor, partner, or community member with questions about our operations, please reach out.</p>
+      <a href="index.html#contact" class="btn btn-teal">Contact Us</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">She Huru Initiative</div>
+        <p>A community-led queer feminist organization in Mombasa, Kenya, advancing safety, dignity, healing, leadership and economic justice.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a><br>
+        <a href="about.html">About</a><br>
+        <a href="programs.html">Programmes</a><br>
+        <a href="impact.html">Impact</a><br>
+        <a href="governance.html">Governance</a><br>
+        <a href="donate.html">Donate</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:info@shehuru.org">info@shehuru.org</a></p>
+        <p>WhatsApp: <a href="https://wa.me/254700000000" target="_blank" rel="noopener">+254 700 000 000</a></p>
+        <p>Mombasa, Kenya</p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="#" target="_blank" rel="noopener">Facebook</a><br>
+        <a href="#" target="_blank" rel="noopener">X (Twitter)</a><br>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 She Huru Initiative. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Safeguarding Statement</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
