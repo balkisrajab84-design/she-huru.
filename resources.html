@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="She Huru Initiative Resources — Toolkits, research, and publications for the community." />
+  <title>Resources — She Huru Initiative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--purple:#6D28D9;--teal:#14B8A6;--coral:#F97316;--offwhite:#FAFAFA;--charcoal:#222222;--muted:#5b5b5b;--radius:18px;--max:1180px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--offwhite);color:var(--charcoal);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.15;letter-spacing:-0.02em;}
+    a{color:inherit;text-decoration:none;}
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px;}
+    .skip{position:absolute;left:-9999px;top:0;background:var(--charcoal);color:#fff;padding:12px 20px;z-index:9999;}
+    .skip:focus{left:0;}
+
+    header.nav-wrap{position:sticky;top:0;z-index:1000;background:rgba(250,250,250,0.96);backdrop-filter:blur(10px);border-bottom:1px solid #eee;}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+    .brand{font-family:'Poppins';font-weight:800;font-size:1.15rem;}
+    .brand span{color:var(--purple);}
+    .nav-links{display:flex;align-items:center;gap:26px;}
+    .nav-links a{font-size:.94rem;font-weight:500;color:#333;}
+    .nav-links a:hover{color:var(--purple);}
+    .btn{display:inline-block;font-weight:600;font-size:.95rem;padding:13px 26px;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;border:2px solid transparent;}
+    .btn:hover{transform:translateY(-2px);}
+    .btn-coral{background:var(--coral);color:#fff;box-shadow:0 8px 20px rgba(249,115,22,.28);}
+    .btn-coral:hover{background:#ea6a0c;}
+    .nav .btn-coral{padding:11px 22px;}
+    .menu-toggle{display:none;}
+
+    .page-hero{background:radial-gradient(circle at 15% 20%, #7c3aed 0%, #6D28D9 50%, #4c1d95 100%);color:#fff;padding:90px 0 100px;position:relative;overflow:hidden;}
+    .page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 80%, rgba(249,115,22,.25), transparent 45%);pointer-events:none;}
+    .page-hero .container{position:relative;z-index:2;}
+    .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#e9d5ff;background:rgba(255,255,255,.10);padding:8px 16px;border-radius:999px;margin-bottom:22px;}
+    .page-hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;max-width:20ch;margin-bottom:20px;}
+    .page-hero p{font-size:clamp(1rem,1.5vw,1.15rem);max-width:60ch;color:#f3e8ff;}
+
+    section{padding:80px 0;}
+    .section-label{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:12px;display:block;}
+    .section-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin-bottom:16px;}
+    .section-sub{max-width:62ch;color:var(--muted);margin-bottom:48px;}
+    .center{text-align:center;}
+    .center .section-sub{margin-left:auto;margin-right:auto;}
+
+    /* RESOURCES GRID */
+    .resources-section{background:#fff;}
+    .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .res-card{background:var(--offwhite);border-radius:var(--radius);padding:32px;border-top:4px solid var(--purple);display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease;}
+    .res-card:hover{transform:translateY(-4px);}
+    .res-card.teal{border-top-color:var(--teal);}
+    .res-card.coral{border-top-color:var(--coral);}
+    .res-icon{font-size:1.8rem;margin-bottom:16px;}
+    .res-card h3{font-size:1.15rem;margin-bottom:10px;}
+    .res-card p{font-size:.9rem;color:var(--muted);margin-bottom:24px;}
+    .download-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--purple);font-size:.9rem;}
+    .res-card.teal .download-btn{color:var(--teal);}
+    .res-card.coral .download-btn{color:var(--coral);}
+    .download-btn:hover{text-decoration:underline;}
+
+    .cta-strip{background:var(--charcoal);color:#fff;text-align:center;padding:70px 0;}
+    .cta-strip h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:14px;}
+    .cta-strip p{color:#cfcfcf;max-width:60ch;margin:0 auto 30px;}
+
+    footer{background:var(--charcoal);color:#cfcfcf;padding:70px 0 28px;border-top:1px solid #333;}
+    .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr 1fr;gap:40px;margin-bottom:50px;}
+    .foot-grid h4{color:#fff;font-size:.95rem;margin-bottom:18px;}
+    .foot-grid p,.foot-grid a{font-size:.9rem;color:#b8b8b8;line-height:1.9;}
+    .foot-grid a:hover{color:var(--teal);}
+    .foot-brand{font-family:'Poppins';font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:14px;}
+    .foot-bottom{border-top:1px solid #383838;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:#8f8f8f;}
+    .foot-bottom a:hover{color:var(--teal);}
+
+    @media(max-width:960px){
+      .res-grid{grid-template-columns:repeat(2,1fr);}
+      .foot-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:720px){
+      .nav-links{display:none;}
+      .nav .btn-coral{display:none;}
+      .menu-toggle{display:block;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--charcoal);}
+      .mobile-nav{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;border-bottom:1px solid #eee;padding:18px 22px;flex-direction:column;gap:14px;}
+      .mobile-nav.open{display:flex;}
+      section{padding:60px 0;}
+      .page-hero{padding:70px 0 80px;}
+      .res-grid{grid-template-columns:1fr;}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+
+<header class="nav-wrap">
+  <div class="container nav">
+    <a href="index.html" class="brand">She Huru <span>Initiative</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programmes</a>
+      <a href="impact.html">Impact</a>
+      <a href="resources.html" style="color:var(--purple);font-weight:700;">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html" class="btn btn-coral">Donate</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" onclick="var m=document.getElementById('mnav');m.classList.toggle('open');">☰</button>
+  </div>
+  <nav id="mnav" class="mobile-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programmes</a>
+    <a href="impact.html">Impact</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" style="color:var(--coral);font-weight:700;">Donate</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Knowledge Hub</span>
+      <h1>Resources &amp; Publications</h1>
+      <p>Explore our toolkits, research, policy briefs, and guides designed for community organizers, advocates, and partners.</p>
+    </div>
+  </section>
+
+  <section class="resources-section">
+    <div class="container">
+      <div class="center">
+        <span class="section-label">Download Center</span>
+        <h2 class="section-title">Explore Our Library</h2>
+        <p class="section-sub">All resources are free to download. Please credit She Huru Initiative if you share or adapt them.</p>
+      </div>
+      
+      <div class="res-grid">
+        <!-- UPDATE: Link these to actual PDF files once you have them -->
+        <div class="res-card">
+          <div>
+            <div class="res-icon" aria-hidden="true">📘</div>
+            <h3>Community Organizing Toolkit</h3>
+            <p>A practical guide for grassroots leaders on building safe, inclusive, and effective community movements.</p>
+          </div>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+
+        <div class="res-card teal">
+          <div>
+            <div class="res-icon" aria-hidden="true">📊</div>
+            <h3>Policy Brief: SRHR Access</h3>
+            <p>An analysis of the barriers LBQ and GNC persons face when accessing sexual and reproductive health services in Coastal Kenya.</p>
+          </div>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+
+        <div class="res-card coral">
+          <div>
+            <div class="res-icon" aria-hidden="true">📖</div>
+            <h3>Healing Justice Guide</h3>
+            <p>Trauma-informed practices and peer-support frameworks for community-led mental health initiatives.</p>
+          </div>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+
+        <div class="res-card">
+          <div>
+            <div class="res-icon" aria-hidden="true">📄</div>
+            <h3>Annual Report 2025</h3>
+            <p>Our official annual report detailing our impact, financials, and organizational growth over the past year.</p>
+          </div>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+
+        <div class="res-card teal">
+          <div>
+            <div class="res-icon" aria-hidden="true">⚖️</div>
+            <h3>Know Your Rights Pamphlet</h3>
+            <p>A plain-language guide on legal protections, reporting mechanisms, and support services for survivors of GBV.</p>
+          </div>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+
+        <div class="res-card coral">
+          <div>
+            <div class="res-icon" aria-hidden="true">🌍</div>
+            <h3>Movement Building Research</h3>
+            <p>Insights and case studies on the state of queer feminist organizing in the East African region.</p>
+          </div>
+          <a href="#" class="download-btn">⬇ Download PDF (Coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Looking for Something Specific?</h2>
+      <p>If you need data for a research project, a speaker for an event, or specific resources for your community, please reach out to our team.</p>
+      <a href="contact.html" class="btn btn-teal" style="background:var(--teal);color:#fff;padding:13px 26px;border-radius:999px;font-weight:600;">Contact Us</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">She Huru Initiative</div>
+        <p>A community-led queer feminist organization in Mombasa, Kenya, advancing safety, dignity, healing, leadership and economic justice.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a><br>
+        <a href="about.html">About</a><br>
+        <a href="programs.html">Programmes</a><br>
+        <a href="impact.html">Impact</a><br>
+        <a href="resources.html">Resources</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:info@shehuru.org">info@shehuru.org</a></p>
+        <p>WhatsApp: <a href="https://wa.me/254700000000" target="_blank" rel="noopener">+254 700 000 000</a></p>
+        <p>Mombasa, Kenya</p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="#" target="_blank" rel="noopener">Facebook</a><br>
+        <a href="#" target="_blank" rel="noopener">X (Twitter)</a><br>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 She Huru Initiative. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Safeguarding Statement</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
